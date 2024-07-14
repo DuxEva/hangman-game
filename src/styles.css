@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.pinky {
+  background-image: linear-gradient(#fe71fe, #7199ff);
+}

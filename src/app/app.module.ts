@@ -3,10 +3,14 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HelpComponent } from './pages/help/help.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelpComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

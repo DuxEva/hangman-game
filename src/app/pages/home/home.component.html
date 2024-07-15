@@ -1,1 +1,25 @@
-<p class="text-center text-4xl text-white">home works!</p>
+<div class="w-full h-full flex items-center justify-center">
+  <div class="w-[27rem] h-[24rem] rounded-2xl linear-blue relative">
+    <img class="-mt-24 mx-auto" src="/assets/images/logo.svg" alt="" />
+    <div class="mt-10 flex flex-col items-center justify-center gap-10">
+      <div class="flex flex-col">
+        <button
+          class="h-28 w-28 p-3 rounded-full linear-pinky"
+          (click)="goToCategories()"
+        >
+          <img
+            class="w-full h-full bg-cover"
+            src="/assets/images/icon-play.svg"
+            alt=""
+          />
+        </button>
+      </div>
+      <button
+        (click)="goToHelp()"
+        class="text-white text-center text-4xl py-3 px-6 rounded-full bg-blue-2 shadow-lg shadow-blue-1"
+      >
+        HOW TO PLAY
+      </button>
+    </div>
+  </div>
+</div>

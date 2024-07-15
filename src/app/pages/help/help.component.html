@@ -1,11 +1,44 @@
-<div class="h-full w-full">
-  <button class="h-20 w-20 pinky rounded-full" (click)="goBack()">
-    <div class="w-18 h-18 flex justify-center items-start">
+<div class="w-full h-full mx-auto py-10">
+  <div class="w-full flex items-center mt-10">
+    <button class="h-20 w-20 linear-pinky rounded-full" (click)="goBack()">
+      <div class="w-18 h-18 flex justify-center items-start">
+        <div
+          class="linear-pinky rounded-full grid place-content-center p-2 shadow-2xl z-10"
+        >
+          <img class="h-12 w-12" src="/assets/images/icon-back.svg" alt="" />
+        </div>
+      </div>
+    </button>
+    <h1
+      class="text-center max-sm:text-right w-[90%] font-bold text-white text-7xl max-sm:text-5xl"
+    >
+      How to Play
+    </h1>
+  </div>
+  <div class="w-full flex gap-10 max-lg:gap-7 mt-16 max-md:gap-4 max-md:flex-col">
+    <div
+      class="flex flex-col max-md:w-full max-md:flex-row gap-10 max-md:gap-6 items-center border-2 bg-white p-5 rounded-xl max-md:rounded-[40px] shadow-2xl"
+      *ngFor="let help of helps; let i = index"
+    >
+      <div>
+        <h1 class="text-7xl text-blue-2 font-bold">
+          {{ help.titleNumber }}
+        </h1>
+      </div>
       <div
-        class="pinky rounded-full grid place-content-center p-2 shadow-2xl z-10"
+        class="flex flex-col items-center max-md:items-start gap-8 max-md:gap-3 text-center max-md:text-left"
       >
-        <img class="h-12 w-12" src="/assets/images/icon-back.svg" alt="" />
+        <h1
+          class="text-blue-1 text-4xl max-md:text-2xl max-sm:text-lg uppercase font-semibold max-md:font-semibold"
+        >
+          {{ help.title }}
+        </h1>
+
+        <p class="text-purple-2 text-3xl max-md:text-2xl max-sm:text-lg">
+          {{ help.description }}
+        </p>
       </div>
     </div>
-  </button>
+  </div>
+  <div></div>
 </div>

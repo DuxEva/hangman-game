@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import DATA from '@/data.json';
+import { Category } from '@/model/types.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
   data = DATA.categories;
+  game: Category = {
+    name: '',
+    items: [],
+  };
 
   constructor() {}
 
@@ -13,7 +18,15 @@ export class GameService {
     return this.data;
   }
 
-  getSelectedCategory(category: string) {
-    return 
+  getSelectedCategory(category: any) {
+    Object.entries(this.data).find(([key, value]) => {
+      if (key === category) {
+        this.game = {
+          name: key,
+          items: value,
+        };
+      }
+    });
+    return this.game;
   }
 }

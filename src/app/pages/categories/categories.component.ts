@@ -25,13 +25,10 @@ export class CategoriesComponent implements OnInit {
   constructor(private gameService: GameService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.gameService.getGames());
     this.categories = this.gameService.getGames();
 
     this.keys = Object.keys(this.categories);
-    console.log(this.keys);
     this.paramKeys = this.keys.map((key) => key.split(' ').join('_'));
-    console.log(this.keys);
   }
 
   goHome() {

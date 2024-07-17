@@ -108,4 +108,8 @@ export class PlayGameComponent {
   goToCategories() {
     this.route.navigate(['/categories']);
   }
+
+  continue() {
+    this.isOpen = false;
+  }
 }

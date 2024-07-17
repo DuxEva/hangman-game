@@ -123,12 +123,26 @@
       <div class="mt-10 flex flex-col items-center justify-center gap-6">
         <button
           (click)="playAgain()"
-          class="text-white text-center text-4xl py-2 px-10 rounded-full bg-blue-2 shadow-lg uppercase btn-shadow"
+          class="text-white text-center text-4xl py-2 px-10 rounded-full bg-blue-2 shadow-lg uppercase btn-shadow {{
+            isDone === true ? 'block' : 'hidden'
+          }}"
         >
           <div class="transition ease-in-out duration-300 rounded-full">
             play again!
           </div>
         </button>
+
+        <button
+          (click)="continue()"
+          class="text-white text-center text-4xl py-2 px-10 rounded-full bg-blue-2 shadow-lg uppercase btn-shadow {{
+            life > 0 && !isDone ? 'block' : 'hidden'
+          }}"
+        >
+          <div class="transition ease-in-out duration-300 rounded-full">
+            continue
+          </div>
+        </button>
+
         <button
           (click)="goToCategories()"
           class="text-white text-center text-4xl py-2 px-10 rounded-full bg-blue-2 shadow-lg uppercase btn-shadow"
@@ -137,6 +151,7 @@
             new category
           </div>
         </button>
+
         <button
           (click)="quitGame()"
           class="text-white text-center text-4xl py-2 px-10 rounded-full linear-pinky shadow-lg uppercase btn-quick-shadow"

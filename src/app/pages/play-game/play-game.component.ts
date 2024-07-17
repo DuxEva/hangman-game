@@ -38,20 +38,7 @@ export class PlayGameComponent {
 
     this.getGameToPlay();
 
-    const index = Math.floor(Math.random() * this.gameToPlay.items.length);
-    this.question = this.gameToPlay.items[index];
-
-    this.word = this.question.name
-      .toLocaleUpperCase()
-      .split('')
-      .filter((letter) => letter !== ' ');
-    console.log('Word:', this.word);
-    this.guessedWord = new Array(this.word.length).fill('');
-
-    for (let i = 0; i < this.word.length / 2; i++) {
-      const index = Math.floor(Math.random() * this.word.length);
-      this.guessedWord[index] = this.word[index];
-    }
+    this.playAgain();
   }
 
   getGameToPlay() {
@@ -71,7 +58,6 @@ export class PlayGameComponent {
       }
 
       if (this.guessedWord.join('') === this.word.join('')) {
-        console.log('Congratulations! You got it right');
         this.isDone = true;
       }
     }
@@ -81,5 +67,32 @@ export class PlayGameComponent {
 
   showOptions() {
     this.isDone = true;
+  }
+
+  playAgain() {
+    this.isDone = false;
+    this.clickedLetters.clear();
+    const index = Math.floor(Math.random() * this.gameToPlay.items.length);
+    this.question = this.gameToPlay.items[index];
+
+    this.word = this.question.name
+      .toLocaleUpperCase()
+      .split('')
+      .filter((letter) => letter !== ' ');
+    console.log('Word:', this.word);
+    this.guessedWord = new Array(this.word.length).fill('');
+
+    for (let i = 0; i < this.word.length / 2; i++) {
+      const index = Math.floor(Math.random() * this.word.length);
+      this.guessedWord[index] = this.word[index];
+    }
+  }
+
+  quitGame() {
+    this.route.navigate(['/']);
+  }
+
+  goToCategories() {
+    this.route.navigate(['/categories']);
   }
 }

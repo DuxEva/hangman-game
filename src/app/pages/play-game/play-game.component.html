@@ -30,7 +30,12 @@
         class="flex gap-5 max-sm:gap-3 w-[30vw] max-sm:w-[35vw] items-center"
       >
         <div class="h-6 bg-white w-[80%] rounded-full flex items-center p-2">
-          <div class="w-[65%] h-4 bg-blue-1 rounded-full"></div>
+          <div
+            class="h-4 bg-blue-1 rounded-full"
+            [ngStyle]="{
+              width: width + '%'
+            }"
+          ></div>
         </div>
         <img class="w-8 h-8" src="/assets/images/icon-heart.svg" alt="" />
       </div>
@@ -71,9 +76,9 @@
               [ngClass]="{
                 'opacity-15': clickedLetters.has(letter)
               }"
-              class="w-20 h-14 max-md:w-16 max-md:h-12 max-sm:w-12 max-sm:h-12 border-2 bg-white rounded-2xl grid place-content-center cursor-pointer"
+              class="w-20 h-14 max-md:w-16 max-md:h-12 max-sm:w-12 max-sm:h-12 bg-white hover:bg-blue-2 text-blue-1 hover:text-white rounded-2xl grid place-content-center cursor-pointer"
             >
-              <p class="text-5xl max-md:text-4xl max-sm:text-2xl text-blue-1">
+              <p class="text-5xl max-md:text-4xl max-sm:text-2xl">
                 {{ letter }}
               </p>
             </div>
@@ -87,14 +92,28 @@
   <div
     class="w-full h-full flex items-center justify-center absolute top-0 left-0 bg-black bg-opacity-40 z-10"
     [ngClass]="{
-      block: isDone === true,
-      hidden: isDone === false
+      block: isOpen === true,
+      hidden: isOpen === false
     }"
   >
     <div class="w-[27rem] h-[24rem] rounded-2xl linear-blue relative">
       <img
-        class="-mt-20 mx-auto w-48 h-32"
+        class="-mt-20 mx-auto w-48 h-32 {{ life === 0 ? 'block' : 'hidden' }} "
+        src="/assets/images/icon-loose.svg"
+        alt=""
+      />
+      <img
+        class="-mt-20 mx-auto w-48 h-32 {{
+          isDone === true && life > 0 ? 'block' : 'hidden'
+        }}"
         src="/assets/images/icon-win.svg"
+        alt=""
+      />
+      <img
+        class="-mt-20 mx-auto w-48 h-32 {{
+          isDone === false && life > 0 ? 'block' : 'hidden'
+        }}"
+        src="/assets/images/icon-pause.svg"
         alt=""
       />
       <div class="mt-10 flex flex-col items-center justify-center gap-6">

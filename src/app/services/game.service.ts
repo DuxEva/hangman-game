@@ -18,7 +18,7 @@ export class GameService {
     return this.data;
   }
 
-  getSelectedCategory(category: any) {
+  getSelectedCategory(category: string) {
     Object.entries(this.data).find(([key, value]) => {
       if (key === category) {
         this.game = {

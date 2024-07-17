@@ -9,7 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./play-game.component.css'],
 })
 export class PlayGameComponent {
+  life: number = 8;
+  width: number = 100;
   isDone: boolean = false;
+  isOpen: boolean = false;
   letters: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   word: string[] = [];
   guessedWord: string[] = [];
@@ -50,27 +53,38 @@ export class PlayGameComponent {
   }
 
   getLetterValue(letter: string) {
-    if (this.word.includes(letter)) {
-      for (let i = 0; i < this.word.length; i++) {
-        if (this.word[i] === letter) {
-          this.guessedWord[i] = letter;
+    if (!this.clickedLetters.has(letter)) {
+      if (this.word.includes(letter)) {
+        for (let i = 0; i < this.word.length; i++) {
+          if (this.word[i] === letter) {
+            this.guessedWord[i] = letter;
+          }
+        }
+
+        if (this.guessedWord.join('') === this.word.join('')) {
+          this.isDone = true;
+          this.isOpen = true;
+        }
+      } else {
+        this.life--;
+        this.width -= 12.5;
+        if (this.life === 0) {
+          this.isOpen = true;
         }
       }
 
-      if (this.guessedWord.join('') === this.word.join('')) {
-        this.isDone = true;
-      }
+      this.clickedLetters.add(letter);
     }
-
-    this.clickedLetters.add(letter);
   }
 
   showOptions() {
-    this.isDone = true;
+    this.isOpen = true;
   }
 
   playAgain() {
     this.isDone = false;
+    this.isOpen = false;
+    this.life = 8;
     this.clickedLetters.clear();
     const index = Math.floor(Math.random() * this.gameToPlay.items.length);
     this.question = this.gameToPlay.items[index];

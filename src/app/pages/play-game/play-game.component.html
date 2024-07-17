@@ -96,9 +96,13 @@
       hidden: isOpen === false
     }"
   >
-    <div class="w-[27rem] h-[24rem] rounded-2xl linear-blue relative">
+    <div
+      class="w-[27rem] h-[24rem] max-sm:w-[20rem] rounded-2xl linear-blue relative"
+    >
       <img
-        class="-mt-20 mx-auto w-48 h-32 {{ life === 0 ? 'block' : 'hidden' }} "
+        class="-mt-20 mx-auto max-sm:w-[80%] max-sm:-mt-20 w-48 h-32 {{
+          life === 0 ? 'block' : 'hidden'
+        }} "
         src="/assets/images/icon-loose.svg"
         alt=""
       />

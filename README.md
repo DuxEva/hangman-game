@@ -1,27 +1,47 @@
-# Hangman
+# Angular Subscription Management App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+This Angular application allows users to fill personal inforamation, select plans and add-ons, and view a summary of their selections with a calculated total price.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Services](#services)
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository:
 
-## Build
+   ```bash
+   git clone git@github.com:DuxEva/hangman-game.git
+   cd subscription-management-app
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Install dependencies:
 
-## Running unit tests
+   ```bash
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Run the application:
 
-## Running end-to-end tests
+   ```bash
+   ng serve
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   The application will be accessible at `http://localhost:4200`.
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. - User gets a screen with opyion to click play which will take him/her on categories
+   - Go to help page to see and run how to play
+2. After choosing category he gets rondon word so that he can fill the gap to complete a word
+3. If if he guesses wrong characters the life will decrease.
+4. If he guesses all right he will get a popup to give him options
+
+## Components
+
+This reposities contains codes of hangman game.
+
+this is the Link to the repo: https://hangmanngamechallenge.netlify.app/

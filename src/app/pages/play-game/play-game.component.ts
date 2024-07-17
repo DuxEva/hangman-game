@@ -84,6 +84,7 @@ export class PlayGameComponent {
   playAgain() {
     this.isDone = false;
     this.isOpen = false;
+    this.width = 100;
     this.life = 8;
     this.clickedLetters.clear();
     const index = Math.floor(Math.random() * this.gameToPlay.items.length);

@@ -93,7 +93,6 @@ export class PlayGameComponent {
       .toLocaleUpperCase()
       .split('')
       .filter((letter) => letter !== ' ');
-    console.log('Word:', this.word);
     this.guessedWord = new Array(this.word.length).fill('');
 
     for (let i = 0; i < this.word.length / 2; i++) {

@@ -48,10 +48,6 @@ export class PlayGameComponent {
     this.gameToPlay = this.gameService.getSelectedCategory(this.category);
   }
 
-  goTocategories() {
-    this.route.navigate(['/categories']);
-  }
-
   getLetterValue(letter: string) {
     if (!this.clickedLetters.has(letter)) {
       if (this.word.includes(letter)) {

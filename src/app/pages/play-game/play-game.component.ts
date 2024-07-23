@@ -108,5 +108,6 @@ export class PlayGameComponent {
 
   continue() {
     this.isOpen = false;
+    this.clickedLetters.clear();
   }
 }
